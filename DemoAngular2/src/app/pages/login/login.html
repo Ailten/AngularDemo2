@@ -1,0 +1,46 @@
+<h1>Login</h1>
+
+
+<div>
+
+    @if(connectedUser() === undefined){
+        <h2>You are disconnected.</h2>
+    }
+    @else {
+        <h2>You are connected : {{ connectedUser()?.user?.email ?? 'Personne' }}.</h2>
+    }
+
+    <hr/>
+
+    <h2>form login</h2>
+
+    <form [formGroup]="loginForm" (submit)="submit($event)">
+
+        <label for="login">login :</label>
+        <input type="text" id="login" formControlName="login"/>
+        @if(loginForm.get('login')?.hasError('required') && loginForm.get('login')?.touched ){
+            <span style="color:red;">login required !</span>
+        }
+
+        <br/>
+
+
+        <label for="password">password :</label>
+        <input type="password" id="password" formControlName="password"/>
+        @if(loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched ){
+            <span style="color:red;">password required !</span>
+        }
+
+        <br/>
+
+        <button type="submit" [disabled]="connectedUser()">Connect</button>
+
+    </form>
+
+    <hr/>
+
+    <h2>logout</h2>
+
+    <button (click)="logout()" [disabled]="!connectedUser()">Disconnect</button>
+
+</div>

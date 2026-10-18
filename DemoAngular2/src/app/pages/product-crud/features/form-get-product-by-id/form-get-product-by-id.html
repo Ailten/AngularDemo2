@@ -1,0 +1,15 @@
+
+<form (submit)="submit($event)">
+
+    <div>
+        <label for="index-product">id product ask :</label>
+        <input 
+            type="number"  
+            [value]="indexProductAsk()"
+            (input)="indexProductAsk.set($any($event.target).valueAsNumber)"
+            id="index-product"/>
+    </div>
+
+    <button type="submit">Select</button>
+
+</form>

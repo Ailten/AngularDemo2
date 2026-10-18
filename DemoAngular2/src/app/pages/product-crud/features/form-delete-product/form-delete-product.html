@@ -1,0 +1,13 @@
+
+
+<div>
+
+    <div style="width: 50%; display: inline-block;">
+        <app-form-get-product-by-id [(selectedProduct)]="productSelected"/>
+    </div>
+
+    <div style="width: 50%; display: inline-block;">
+        <button (click)="deleteProduct()" [disabled]="productSelected() === undefined">Delete</button>
+    </div>
+
+</div>

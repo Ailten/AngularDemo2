@@ -1,0 +1,28 @@
+
+<h1>list products</h1>
+
+
+<div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for(product of products(); track product.id){
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td style="text-align: right;">{{ product.price | currency:'EUR':'symbol':'1.2-2':'fr-FR' }}</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

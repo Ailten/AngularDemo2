@@ -1,0 +1,23 @@
+
+
+<form [formGroup]="createProduct" (submit)="submit($event)">
+
+    <div>
+        <label for="name">name :</label>
+        <input type="text" id="name" formControlName="name"/>
+
+        @if(createProduct.get('name')?.hasError('required') && createProduct.get('name')?.touched){
+            <span style="color:red;">name is required !</span>
+        }
+        
+    </div>
+
+    <div>
+        <label for="price">price :</label>
+        <input type="number" id="price" formControlName="price"/>
+        <!-- TODO: if error -->
+    </div>
+
+    <button type="submit">Create</button>
+
+</form>
