@@ -34,6 +34,7 @@ export class FormDeleteProduct {
     this._productService.delete(idProduct).subscribe({
       next: (result) => {
         console.log('delete with success.');
+        this.productSelected.set(undefined);  // remove element select (after deleting in DB).
       },
       error: (error) => {
         console.error('delet error');
